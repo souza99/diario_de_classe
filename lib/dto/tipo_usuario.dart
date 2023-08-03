@@ -1,0 +1,1 @@
+enum TipoUsuarioDTO { professor, aluno }

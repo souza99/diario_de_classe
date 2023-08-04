@@ -11,7 +11,7 @@ class TurmaCreat extends StatefulWidget {
 }
 
 class _TurmaCreatState extends State<TurmaCreat> {
-  List<String> _alunosList = [];
+  List<String> _alunosList = ["Joao Pedro", "Andrei", "Lucas", "Ruam", "Toby"];
   int? _id;
   @override
   void initState() {
@@ -74,8 +74,7 @@ class _TurmaCreatState extends State<TurmaCreat> {
                   },
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text('Adicionar Aluno'),
                 ),
                 ElevatedButton(

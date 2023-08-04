@@ -1,30 +1,34 @@
-import 'package:diario_de_classe/View/Turma/TurmaCreat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class TurmaList extends StatefulWidget {
-  const TurmaList({super.key});
+class LancamentoNota extends StatefulWidget {
+  const LancamentoNota({super.key});
 
   @override
-  State<TurmaList> createState() => _TurmaListState();
+  State<LancamentoNota> createState() => _LancamentoNotaState();
 }
 
-class _TurmaListState extends State<TurmaList> {
-  List _breeds = [
-    {'name': 'tirma 1 ano'},
-    {'name': 'tirma 2 ano'}
+class _LancamentoNotaState extends State<LancamentoNota> {
+  List _turmas = [
+    {'name': "1 ano Es"},
+    {"name": "2 ano Es"},
+    {"name": "Terceiro ano"}
   ];
 
   TextEditingController _filterInput = TextEditingController();
 
   _fetchDataBreed() async {
-    final breeds = [{'name': 'tirma 1 ano'},
-        {'name': 'tirma 2 ano'}];
+    final turmas = [
+        {'name': "1 ano Es"},
+        {"name": "2 ano Es"},
+        {"name": "Terceiro ano"}
+      ];
     setState(() {
-      _breeds = [
-        {'name': 'tirma 1 ano'},
-        {'name': 'tirma 2 ano'}
+      _turmas = [
+        {'name': "1 ano Es"},
+        {"name": "2 ano Es"},
+        {"name": "Terceiro ano"}
       ];
     });
   }
@@ -43,7 +47,8 @@ class _TurmaListState extends State<TurmaList> {
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context, false),
         ),
-        title: Text('Lista de turmas'),
+        title: Text('Escolha uma turma'),
+        backgroundColor: Colors.green,
       ),
       body: ListView(
         children: [
@@ -78,37 +83,29 @@ class _TurmaListState extends State<TurmaList> {
                         child: Text("Filtrar!"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: Colors.black,
-                          primary:
-                              Color.fromARGB(255, 31, 158, 218), //<-- SEE HERE
+                          primary: Colors.amberAccent, //<-- SEE HERE
                         ),
-                        onPressed: () async {
-                          null;
-                        },
+                        onPressed: () async {},
                       ),
                     ],
                   ),
                 ),
-                buildTurmaList(),
+                buildLancamentoNota(),
               ],
             ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => TurmaCreat()),
-          );
-        },
+        onPressed: () {},
         child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 34, 0, 187),
+        backgroundColor: Color.fromARGB(255, 187, 174, 0),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 
-  buildTurmaList() {
+  buildLancamentoNota() {
     return Card(
       child: Column(
         children: [
@@ -131,15 +128,7 @@ class _TurmaListState extends State<TurmaList> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'excluir',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(width: 16),
-                Text(
-                  'editar',
+                  'Selecionar',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,
@@ -149,10 +138,10 @@ class _TurmaListState extends State<TurmaList> {
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 1, horizontal: 40),
           ),
-          ..._breeds
+          ..._turmas
               .asMap()
               .map(
-                (index, breed) => MapEntry(
+                (index, turma) => MapEntry(
                   index,
                   Container(
                     color: index % 2 == 0
@@ -168,7 +157,7 @@ class _TurmaListState extends State<TurmaList> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  breed['name'],
+                                  turma['name'].toString(),
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 0, 0, 0)),
                                 ),
@@ -177,19 +166,20 @@ class _TurmaListState extends State<TurmaList> {
                           ),
                           Expanded(
                             flex: 1,
-                            child: Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () => {},
-                                  icon: Icon(Icons.edit),
-                                  color: Color.fromARGB(255, 20, 122, 16),
-                                ),
-                                IconButton(
-                                  onPressed: () => {},
-                                  icon: Icon(Icons.delete),
-                                  color: Color.fromARGB(255, 189, 18, 18),
-                                ),
-                              ],
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left:
+                                      40.0), // Define a margem esquerda desejada aqui
+                              child: Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () => {},
+                                    icon: Icon(Icons.scale),
+                                    color: Color.fromARGB(255, 41, 16, 122),
+                                  ),
+                                  // Restante do código...
+                                ],
+                              ),
                             ),
                           ),
                         ],

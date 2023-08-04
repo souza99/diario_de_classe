@@ -1,3 +1,4 @@
+import 'package:diario_de_classe/View/LancamentoNota/LancamentoNotas.dart';
 import 'package:diario_de_classe/View/Turma/TurmaList.dart';
 import 'package:flutter/material.dart';
 
@@ -101,7 +102,7 @@ class _MenuLateralState extends State<MenuLateral> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => TurmaList()),
+          MaterialPageRoute(builder: (context) => LancamentoNota()),
         );
         break;
       case 1:

@@ -1,3 +1,4 @@
+import 'package:diario_de_classe/View/Turma/TurmaCreat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,14 +11,20 @@ class TurmaList extends StatefulWidget {
 }
 
 class _TurmaListState extends State<TurmaList> {
-  List _breeds = [];
+  List _breeds = [
+    {'name': 'tirma 1 ano'},
+    {'name': 'tirma 2 ano'}
+  ];
 
   TextEditingController _filterInput = TextEditingController();
 
   _fetchDataBreed() async {
     final breeds = [];
     setState(() {
-      _breeds = breeds;
+      _breeds = [
+        {'name': 'tirma 1 ano'},
+        {'name': 'tirma 2 ano'}
+      ];
     });
   }
 
@@ -36,7 +43,6 @@ class _TurmaListState extends State<TurmaList> {
           onPressed: () => Navigator.pop(context, false),
         ),
         title: Text('Lista de turmas'),
-        backgroundColor: Color.fromARGB(255, 57, 170, 60),
       ),
       body: ListView(
         children: [
@@ -88,7 +94,12 @@ class _TurmaListState extends State<TurmaList> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TurmaCreat()),
+          );
+        },
         child: Icon(Icons.add),
         backgroundColor: Color.fromARGB(255, 34, 0, 187),
       ),
@@ -144,8 +155,8 @@ class _TurmaListState extends State<TurmaList> {
                   index,
                   Container(
                     color: index % 2 == 0
-                        ? Color.fromARGB(167, 32, 121, 66)
-                        : Color.fromARGB(255, 202, 231, 190),
+                        ? Color.fromARGB(167, 103, 235, 235)
+                        : Color.fromARGB(255, 84, 181, 194),
                     child: ListTile(
                       //leading: Icon(Icons.add_a_photo),
                       title: Row(
@@ -156,7 +167,7 @@ class _TurmaListState extends State<TurmaList> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  breed.name,
+                                  breed['name'],
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 0, 0, 0)),
                                 ),

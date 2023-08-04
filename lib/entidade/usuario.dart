@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:diario_de_classe/entidade%20copy/tipo_usuario.dart';
+import 'package:diario_de_classe/dto/tipo_usuario.dart';
 
 class Usuario {
   late Long id;

@@ -11,6 +11,7 @@ class TurmaCreat extends StatefulWidget {
 }
 
 class _TurmaCreatState extends State<TurmaCreat> {
+  List<String> _alunosList = [];
   int? _id;
   @override
   void initState() {
@@ -58,6 +59,24 @@ class _TurmaCreatState extends State<TurmaCreat> {
                   hint: "Insira o nome",
                   title: "Nome",
                   controller: _name,
+                ),
+                MyInputField(
+                  hint: "Insira o nome do aluno",
+                  title: "Nome do Aluno",
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: _alunosList.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(_alunosList[index]),
+                    );
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                  },
+                  child: Text('Adicionar Aluno'),
                 ),
                 ElevatedButton(
                   onPressed: _saveBreed,

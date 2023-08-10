@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:diario_de_classe/View/components/input_fild.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +24,8 @@ class _TurmaCreatState extends State<TurmaCreat> {
       });
     }
   }
+  TextEditingController _dataNascimento = TextEditingController();
+  TextEditingController _alunoNovo = TextEditingController();
 
   final TextEditingController _name = TextEditingController();
 
@@ -30,6 +34,7 @@ class _TurmaCreatState extends State<TurmaCreat> {
   Future<void> _saveBreed() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+
       Object breed = {
         'id': _id,
         'name': _name,
@@ -41,7 +46,6 @@ class _TurmaCreatState extends State<TurmaCreat> {
     }
   }
 
-  TextEditingController _dataNascimento = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +67,7 @@ class _TurmaCreatState extends State<TurmaCreat> {
                 MyInputField(
                   hint: "Insira o nome do aluno",
                   title: "Nome do Aluno",
+                  controller: _alunoNovo,
                 ),
                 ListView.builder(
                   shrinkWrap: true,
@@ -74,7 +79,11 @@ class _TurmaCreatState extends State<TurmaCreat> {
                   },
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      _alunosList.add(_alunoNovo.text);
+                    });
+                  },
                   child: Text('Adicionar Aluno'),
                 ),
                 ElevatedButton(

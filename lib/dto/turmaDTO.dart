@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:diario_de_classe/dto/professorDTO.dart';
 
 class TurmaDTO {
-  late Long id;
+  late int id;
   String nome;
   ProfessorDTO professor;
 

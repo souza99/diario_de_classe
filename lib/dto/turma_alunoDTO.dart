@@ -4,7 +4,7 @@ import 'package:diario_de_classe/dto/alunoDTO.dart';
 import 'package:diario_de_classe/dto/turmaDTO.dart';
 
 class TurmaAlunoDTO {
-  late Long id;
+  late int id;
   AlunoDTO aluno;
   TurmaDTO turma;
 

@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 class ConceitoDTO {
-  late Long id;
+  late int id;
   String valor;
 
   ConceitoDTO(this.valor);

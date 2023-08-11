@@ -4,7 +4,7 @@ import 'package:diario_de_classe/dto/alunoDTO.dart';
 import 'package:diario_de_classe/dto/conceitoDTO.dart';
 
 class ConceitoAlunoDTO {
-  late Long id;
+  late int id;
   AlunoDTO aluno;
   ConceitoDTO conceito;
   DateTime data;

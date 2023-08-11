@@ -4,7 +4,7 @@ import 'package:diario_de_classe/entidade/aluno.dart';
 import 'package:diario_de_classe/entidade/conceito.dart';
 
 class ConceitoAluno {
-  late Long id;
+  late int id;
   Aluno aluno;
   Conceito conceito;
   DateTime data;

@@ -7,37 +7,34 @@ import 'package:diario_de_classe/dto/turma_alunoDTO.dart';
 import 'package:diario_de_classe/entidade/aluno.dart';
 import 'package:diario_de_classe/entidade/professor.dart';
 import 'package:diario_de_classe/portas/saida/i_turma.dart';
+import 'package:get/get.dart';
 
 class Turma {
-  late Long id;
+  late int id;
   String nome;
-  Professor professor;
+  ProfessorDTO professorDTO;
 
-  Turma(this.nome, this.professor);
+  Turma(this.nome, this.professorDTO);
 
-  salvar(List<AlunoDTO> alunos, ITurma iTurma) {
+  String salvar(List<AlunoDTO> alunos, ITurma iTurma) {
     if (alunos.isEmpty) return "A turma deve ter pelo menos 1 aluno para ser cadastrada";
-    ProfessorDTO professorDTO = ProfessorDTO(professor.nome, professor.email);
-    professorDTO.id = professor.id;
     TurmaDTO turmaDTO = TurmaDTO(nome, professorDTO);
-    Long idTurma = iTurma.salvarTurma(turmaDTO);
-    if (!idTurma.isDefinedAndNotNull) return "Ocorreu um erro as salvar a turma";
+    int idTurma = iTurma.salvarTurma(turmaDTO);
     turmaDTO.id = idTurma;
     String retorno = '';
-    Long idTurmaAluno;
+    int idTurmaAluno;
     for (AlunoDTO aluno in alunos) {
       TurmaAlunoDTO turmaAlunoDTO = TurmaAlunoDTO(aluno, turmaDTO);
       idTurmaAluno = iTurma.salvarTurmaAluno(turmaAlunoDTO);
-      if (!idTurma.isDefinedAndNotNull) {
+      if (idTurmaAluno.isBlank!) {
         if (retorno.isEmpty) {
           retorno = "Ocorreu um erro ao vincular o(s) seguinte(s) aluno(s) a turma: ";
         }
         retorno += '${turmaAlunoDTO.turma.nome}, ';
       }
-      if (retorno.isEmpty) retorno = "Turma cadastrada com sucesso";
-
-      return retorno;
     }
+    if (retorno.isEmpty) retorno = "Turma cadastrada com sucesso";
+    return retorno;
   }
   
 }

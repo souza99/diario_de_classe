@@ -4,7 +4,7 @@ import 'package:diario_de_classe/entidade/aluno.dart';
 import 'package:diario_de_classe/entidade/turma.dart';
 
 class TurmaAluno {
-  late Long id;
+  late int id;
   Aluno aluno;
   Turma turma;
 

@@ -4,7 +4,7 @@ import 'package:diario_de_classe/dto/tipo_usuario.dart';
 
 
 class UsuarioDTO {
-  late Long id;
+  late int id;
   String nome;
   String email;
   late String senha;

@@ -20,10 +20,10 @@ class _LancamentoNotaState extends State<LancamentoNota> {
 
   _fetchDataBreed() async {
     final turmas = [
-        {'name': "1 ano Es"},
-        {"name": "2 ano Es"},
-        {"name": "Terceiro ano"}
-      ];
+      {'name': "1 ano Es"},
+      {"name": "2 ano Es"},
+      {"name": "Terceiro ano"}
+    ];
     setState(() {
       _turmas = [
         {'name': "1 ano Es"},
@@ -173,7 +173,15 @@ class _LancamentoNotaState extends State<LancamentoNota> {
                               child: Row(
                                 children: [
                                   IconButton(
-                                    onPressed: () => {},
+                                    onPressed: () => {
+                                      turma,
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LancamentoNota()),
+                                      ),
+                                    },
                                     icon: Icon(Icons.scale),
                                     color: Color.fromARGB(255, 41, 16, 122),
                                   ),

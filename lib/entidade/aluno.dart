@@ -5,7 +5,7 @@ import 'package:diario_de_classe/portas/saida/i_aluno.dart';
 import '../dto/alunoDTO.dart';
 
 class Aluno extends Usuario {
-  // Aluno(super.nome, super.email, {tipoUsuario = TipoUsuario.aluno});
+  Aluno({required super.nome, required super.email, tipoUsuario = TipoUsuario.aluno});
 
    AlunoDTO salvar(AlunoDTO aluno, IAluno iAluno) {
     if (aluno.nome.isEmpty)

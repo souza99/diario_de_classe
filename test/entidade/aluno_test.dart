@@ -15,9 +15,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:diario_de_classe/main.dart';
 
 void main() {
-  test('A turma deve ser criada com pelo menos 1 aluno, criar a turma e turma_aluno juntos na criação de turma', () {
+  test('Teste de salvar aluno', () {
     AlunoDTO alunoDTO = AlunoDTO("Aluno", "aluno@gmail.com");
-    Aluno aluno = Aluno(alunoDTO.nome, alunoDTO.email);
+    Aluno aluno = Aluno(nome: alunoDTO.nome, email: alunoDTO.email);
     IAluno iAluno = IAlunoFake();
     AlunoDTO alunoSalvo = aluno.salvar(alunoDTO, iAluno);
     AlunoDTO alunoEsperado = alunoDTO;

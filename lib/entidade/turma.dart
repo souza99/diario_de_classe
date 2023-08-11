@@ -1,5 +1,4 @@
 import 'dart:ffi';
-import 'dart:js_interop';
 
 import 'package:diario_de_classe/dto/alunoDTO.dart';
 import 'package:diario_de_classe/dto/professorDTO.dart';

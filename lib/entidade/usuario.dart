@@ -18,7 +18,7 @@ class Usuario {
   final String? nome;
   final String? email;
   final String? senha;
-  final int? tipoUsuario;
+  final TipoUsuario? tipoUsuario;
 
   const Usuario({
     this.senha,
@@ -39,14 +39,14 @@ class Usuario {
         id: json[UsuarioFields.id] as int,
         nome: json[UsuarioFields.nome] as String,
         email: json[UsuarioFields.email] as String,
-        tipoUsuario: json[UsuarioFields.tipoUsuario] as int,
+        tipoUsuario: json[UsuarioFields.tipoUsuario] as TipoUsuario,
       );
 
   Usuario copy({
     int? id,
     String? nome,
     String? email,
-    int? tipoUsuario,
+    TipoUsuario? tipoUsuario,
   }) =>
       Usuario(
         id: id ?? this.id,
